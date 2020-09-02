@@ -3,7 +3,7 @@ WebViewJavascriptBridge
 
 [![Circle CI](https://img.shields.io/circleci/project/github/marcuswestin/WebViewJavascriptBridge.svg)](https://circleci.com/gh/marcuswestin/WebViewJavascriptBridge)
 
-An iOS/OSX bridge for sending messages between Obj-C and JavaScript in WKWebViews, UIWebViews & WebViews.
+An iOS/OSX bridge for sending messages between Obj-C and JavaScript in WKWebViews.
 
 Migration Guide
 ---------------
@@ -68,7 +68,7 @@ Usage
 @property WebViewJavascriptBridge* bridge;
 ```
 
-2) Instantiate WebViewJavascriptBridge with a WKWebView, UIWebView (iOS) or WebView (OSX):
+2) Instantiate WebViewJavascriptBridge with a WKWebView:
 
 ```objc
 self.bridge = [WebViewJavascriptBridge bridgeForWebView:webView];
@@ -87,7 +87,7 @@ self.bridge = [WebViewJavascriptBridge bridgeForWebView:webView];
 ```
 
 4) Copy and paste `setupWebViewJavascriptBridge` into your JS:
-	
+
 ```javascript
 function setupWebViewJavascriptBridge(callback) {
 	if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
@@ -105,7 +105,7 @@ function setupWebViewJavascriptBridge(callback) {
 
 ```javascript
 setupWebViewJavascriptBridge(function(bridge) {
-	
+
 	/* Initialize your app here */
 
 	bridge.registerHandler('JS Echo', function(data, responseCallback) {
@@ -142,13 +142,13 @@ API Reference
 
 ### ObjC API
 
-##### `[WebViewJavascriptBridge bridgeForWebView:(WKWebVIew/UIWebView/WebView*)webview`
+##### `[WebViewJavascriptBridge bridgeForWebView:(WKWebVIew)webview`
 
 Create a javascript bridge for the given web view.
 
 Example:
 
-```objc	
+```objc
 [WebViewJavascriptBridge bridgeForWebView:webView];
 ```
 
